@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx next *)",
+      "WebFetch(domain:localhost)",
+      "Bash(curl -s --max-time 10 http://localhost:3000)",
+      "Bash(curl -s --max-time 10 http://localhost:3000/our-farm)",
+      "Bash(curl -s --max-time 10 http://localhost:3000/products)",
+      "Bash(curl -s --max-time 10 http://localhost:3000/plans)",
+      "Bash(curl -s --max-time 10 http://localhost:3000/delivery)",
+      "Bash(curl -s --max-time 10 http://localhost:3000/reviews)",
+      "Bash(py --version)",
+      "Bash(python -c ' *)"
+    ]
+  }
+}

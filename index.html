@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nandhavanam | Purity from Our Farm to Your Family</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-tint": "#3c6844",
+                        "on-tertiary": "#ffffff",
+                        "on-background": "#1f1b11",
+                        "on-error": "#ffffff",
+                        "secondary-fixed-dim": "#92d969",
+                        "primary-fixed-dim": "#a2d2a7",
+                        "surface-container-high": "#f0e7d7",
+                        "on-tertiary-container": "#dbad53",
+                        "primary": "#093819",
+                        "secondary-fixed": "#adf682",
+                        "on-tertiary-fixed-variant": "#5d4200",
+                        "on-secondary": "#ffffff",
+                        "on-surface": "#1f1b11",
+                        "tertiary": "#402c00",
+                        "inverse-surface": "#343025",
+                        "outline": "#727970",
+                        "tertiary-container": "#5d4100",
+                        "surface-bright": "#fff8f0",
+                        "tertiary-fixed": "#ffdea6",
+                        "on-surface-variant": "#414941",
+                        "secondary": "#2c6c02",
+                        "outline-variant": "#c1c9be",
+                        "surface-container-low": "#fcf3e2",
+                        "primary-fixed": "#bdefc2",
+                        "primary-container": "#234f2e",
+                        "surface-variant": "#eae2d1",
+                        "background": "#fff8f0",
+                        "tertiary-fixed-dim": "#efbf63",
+                        "on-secondary-fixed-variant": "#1f5100",
+                        "surface-container": "#f6eddc",
+                        "inverse-on-surface": "#f9f0df",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed": "#271900",
+                        "on-primary": "#ffffff",
+                        "surface-dim": "#e2d9c9",
+                        "on-error-container": "#93000a",
+                        "surface-container-highest": "#eae2d1",
+                        "on-secondary-container": "#32720a",
+                        "on-primary-fixed-variant": "#24502e",
+                        "surface": "#fff8f0",
+                        "error-container": "#ffdad6",
+                        "on-primary-container": "#90c096",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed": "#00210b",
+                        "inverse-primary": "#a2d2a7",
+                        "on-secondary-fixed": "#082100",
+                        "secondary-container": "#adf682"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-md": "32px",
+                        "stack-sm": "12px",
+                        "margin-mobile": "20px",
+                        "margin-desktop": "64px",
+                        "gutter": "24px",
+                        "container-max": "1280px",
+                        "stack-lg": "80px",
+                        "unit": "8px"
+                    },
+                    "fontFamily": {
+                        "display-lg-mobile": ["Montserrat"],
+                        "body-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-md": ["Montserrat"],
+                        "headline-lg": ["Montserrat"],
+                        "display-lg": ["Montserrat"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg-mobile": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                        "display-lg": ["56px", {"lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .grain-overlay {
+            background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
+            opacity: 0.03;
+            pointer-events: none;
+        }
+        .glass-nav {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .mist-layer {
+            background: linear-gradient(to bottom, transparent, rgba(255, 248, 240, 0.4), transparent);
+            filter: blur(40px);
+        }
+        @keyframes slideInFade {
+            0% { transform: translateX(50px); opacity: 0; }
+            100% { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-bottle-entrance {
+            animation: slideInFade 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-secondary-fixed selection:text-on-secondary-fixed relative">
+<div class="fixed inset-0 grain-overlay z-[9999]"></div>
+<!-- Header / Sticky NavBar -->
+<header class="fixed top-0 left-0 right-0 z-[1000] bg-primary/90 dark:bg-primary/95 glass-nav border-b border-white/10 shadow-sm transition-all duration-300">
+<div class="flex justify-between items-center px-6 md:px-margin-desktop py-4 w-full max-w-container-max mx-auto">
+<div class="flex items-center gap-4">
+<img alt="Nandhavanam Logo" class="h-10 w-10 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8xwFpjFJqljk7YavLexbc-1x8h0pNKBNf1I-6gxV3h19rXpTku7ziPQLprUFXJvu0mVewv63gh74d2iyyaaF-zCkUsw1VwDOMMP0WU5sTODgowQMw6DeEjcLyc-ieV6HW0Ga1i9AQAUzu3OaSVf_LMRiFAodf1PRKpYRA9r5jYNt7heeDQNSoM2YjXR7-qlqn8GGSbyaSz-Qq1jNWARqHkDxk6PV_4xNKOw8t1UzlCU68H_wFpLENl_OcpNGYjPVQMCynOT1gky_C"/>
+<span class="font-headline-md text-headline-md font-bold text-primary-fixed tracking-tight">Nandhavanam</span>
+</div>
+<nav class="hidden md:flex items-center gap-gutter">
+<a class="font-label-md text-label-md text-primary-fixed/80 font-medium pb-1 hover:text-secondary-fixed transition-colors duration-300" href="#farm">The Farm</a>
+<a class="font-label-md text-label-md text-primary-fixed/80 font-medium pb-1 hover:text-secondary-fixed transition-colors duration-300" href="#purity">Purity Ritual</a>
+<a class="font-label-md text-label-md text-primary-fixed/80 font-medium pb-1 hover:text-secondary-fixed transition-colors duration-300" href="#products">Products</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="bg-secondary-container text-on-secondary-container px-6 py-2.5 rounded-full font-label-md text-label-md hover:translate-y-[-2px] hover:shadow-lg transition-all duration-300 active:scale-95">
+                    Start Free Trial
+                </button>
+</div>
+</div>
+</header>
+<!-- Section 1: Hero -->
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+<div class="absolute inset-0 z-0">
+<img alt="Hero background" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AP1WRLviQwAriJdv69FViUrrRfjfj_MujcytElywO2KWc7cMwIvy15-dJYI8WIxjnVN_i2OLJRjSKr6KTEUMOM4KoERRz0bfGznYngtitzjinKKPCaROy8ZXmCyIUaqUdHQhyIj2jhx3mt19LyOQ7bkD1013RYO-nIDS8zJcVKCCv7kplw1JNHuG-4plPzrUI8Gi9ayDJvekRqF3FNLxON5Wt7W1Ju0Q5DZGIQFEQJHrBItvimNNtZtYc8KiPVvJ"/>
+<div class="absolute inset-0 bg-gradient-to-r from-primary/70 via-primary/40 to-transparent"></div>
+</div>
+<div class="relative z-10 w-full max-w-container-max mx-auto px-6 md:px-margin-desktop flex flex-col md:flex-row items-center gap-stack-lg">
+<div class="flex-1 text-on-primary-fixed">
+<div class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-secondary-fixed/20 border border-secondary-fixed/30 text-secondary-fixed mb-6">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-label-md text-[12px] uppercase tracking-widest">Brahma Muhurtham Harvest</span>
+</div>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg mb-6 leading-[1.1] text-white">From Our Farm <br/>To Your Family.</h1>
+<p class="font-body-lg text-body-lg text-primary-fixed/90 max-w-xl mb-10">
+                    Collected before sunrise during Brahma Muhurtham. Delivered in hygienically sanitized glass bottles, ensuring the rhythm of nature reaches your doorstep.
+                </p>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="bg-secondary-fixed text-on-secondary-fixed px-8 py-4 rounded-full font-headline-md flex items-center justify-center gap-2 group hover:shadow-[0_0_30px_rgba(173,246,130,0.4)] transition-all">
+                        Start Your Trial
+                        <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+<button class="bg-white/10 backdrop-blur-md border border-white/20 text-white px-8 py-4 rounded-full font-headline-md flex items-center justify-center gap-2 hover:bg-white/20 transition-all">
+<span class="material-symbols-outlined">chat</span>
+                        WhatsApp Order
+                    </button>
+</div>
+</div>
+<div class="flex-1 relative group animate-bottle-entrance">
+<div class="animate-float">
+<img alt="Nandhavanam Milk Bottle" class="w-full max-w-[500px] mx-auto object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.3)]" src="https://lh3.googleusercontent.com/aida/AP1WRLvAznHpBDY5hqQ3J9MDE2RshHOUgicvmUNNpblxWcxEF0EL-OR3BrWf8IEe2e8qd8Y4bkCMSeSQMt5z1x_3So91agR5hxnncPSpGeAGGxZqToj7xSm95Y99_fJdYdCF6dNQPPH3Hr1oS_qUFK_XUM7y5tJtdiT5Eptpt7zXeYTudAjfBtasRv7Ua9jUqn8fUjOVE0NRu_klAgGeWS-ATQP02kfTVzEFCVBQzzWEy4qnwf2YheYRgnKzOxfF"/>
+<div class="absolute -bottom-6 right-0 md:-right-4 bg-white/90 backdrop-blur-md p-6 rounded-2xl shadow-2xl border border-white/50 w-full max-w-[280px]">
+<div class="flex items-center gap-4 mb-2">
+<div class="p-2 bg-primary/10 rounded-full">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">eco</span>
+</div>
+<span class="font-headline-md text-primary text-body-md">100% Raw &amp; Pure</span>
+</div>
+<p class="text-on-surface-variant font-body-md text-sm">No adulteration, no chemicals. Just pure farm essence.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Drifting Mist Layer -->
+<div class="absolute bottom-0 left-0 w-full h-64 mist-layer opacity-40"></div>
+</section>
+<!-- Section 2: Meet Our Farm -->
+<section class="py-stack-lg bg-surface relative overflow-hidden" id="farm">
+<div class="max-w-container-max mx-auto px-6 md:px-margin-desktop">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-stack-lg items-center">
+<div class="order-2 lg:order-1">
+<div class="relative rounded-[2rem] overflow-hidden shadow-2xl border-8 border-surface-container-high aspect-[4/5]">
+<img alt="Cinematic low angle shot of buffaloes grazing in a vast, sun-drenched green meadow at dawn." class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/ADBb0ugf5EYIGlFUwvj2Sym3NBajfx8VSnaTL9VL1g5eH2v6Lgy5HPpacKwuSSTEKRBY4XLO7bsDkqRfKc8nFXCuG53Z-lzWCM777HvddeUQqWIExuutTDt0GglnugRJb9bzf9VGajnr_80YhLzP3qhgaLu22eRR8sTEtjNvpDVQU945l-8GHmNN-obAMDuzppQhnP15tO8K58INhUINsIzvq4RhxyIWqZXt61MsS99aLuqJEjhfD1qGodQZXH8"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8">
+<p class="text-white font-body-lg italic">"Pesticide-free meadows for naturally nutritious milk."</p>
+</div>
+</div>
+</div>
+<div class="order-1 lg:order-2 space-y-stack-md">
+<span class="text-secondary font-label-md uppercase tracking-[0.2em]">Grounded Meadows</span>
+<h2 class="font-display-lg text-display-lg-mobile md:text-headline-lg text-primary">Families Who Care About Purity.</h2>
+<p class="font-body-lg text-on-surface-variant leading-relaxed">
+                        Our buffaloes and cows are not just livestock; they are family. They graze freely on pesticide-free pastures, breathe fresh country air, and are milked under strict hygienic conditions. We prioritize animal welfare because happy, healthy animals produce the most nutritious milk.
+                    </p>
+<div class="grid grid-cols-2 gap-stack-sm">
+<div class="p-6 bg-surface-container rounded-2xl border border-outline-variant/30">
+<h4 class="font-headline-md text-primary mb-2">Pesticide Free</h4>
+<p class="text-sm text-on-surface-variant">Organic fodder grown right on our farm.</p>
+</div>
+<div class="p-6 bg-surface-container rounded-2xl border border-outline-variant/30">
+<h4 class="font-headline-md text-primary mb-2">Natural Care</h4>
+<p class="text-sm text-on-surface-variant">No growth hormones or antibiotics.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 3: The Morning Journey (Timeline) -->
+<section class="py-stack-lg bg-primary-container text-on-primary-container relative overflow-hidden">
+<div class="max-w-container-max mx-auto px-6 md:px-margin-desktop relative z-10">
+<div class="text-center mb-16">
+<h2 class="font-display-lg text-display-lg-mobile md:text-headline-lg mb-4">The Morning Ritual</h2>
+<p class="text-primary-fixed/80 max-w-2xl mx-auto">From udder to your doorstep in less than 4 hours.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-5 gap-4 relative">
+<!-- Step 1 -->
+<div class="group relative flex flex-col items-center text-center p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:bg-white/10 transition-all">
+<span class="text-secondary-fixed font-headline-lg mb-2">5:00 AM</span>
+<h4 class="font-headline-md mb-2">Collection</h4>
+<p class="text-sm text-primary-fixed/60">Brahma Muhurtham milking starts.</p>
+</div>
+<!-- Step 2 -->
+<div class="group relative flex flex-col items-center text-center p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:bg-white/10 transition-all">
+<span class="text-secondary-fixed font-headline-lg mb-2">5:45 AM</span>
+<h4 class="font-headline-md mb-2">Testing</h4>
+<p class="text-sm text-primary-fixed/60">Rigorous chemical purity checks.</p>
+</div>
+<!-- Step 3 -->
+<div class="group relative flex flex-col items-center text-center p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:bg-white/10 transition-all">
+<span class="text-secondary-fixed font-headline-lg mb-2">6:15 AM</span>
+<h4 class="font-headline-md mb-2">Chilling</h4>
+<p class="text-sm text-primary-fixed/60">Flash chilled below 4°C.</p>
+</div>
+<!-- Step 4 -->
+<div class="group relative flex flex-col items-center text-center p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:bg-white/10 transition-all">
+<span class="text-secondary-fixed font-headline-lg mb-2">6:45 AM</span>
+<h4 class="font-headline-md mb-2">Dispatch</h4>
+<p class="text-sm text-primary-fixed/60">Sanitized transit modules.</p>
+</div>
+<!-- Step 5 -->
+<div class="group relative flex flex-col items-center text-center p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:bg-white/10 transition-all">
+<span class="text-secondary-fixed font-headline-lg mb-2">7:30 AM</span>
+<h4 class="font-headline-md mb-2">Drop</h4>
+<p class="text-sm text-primary-fixed/60">Delivered in chilled glass.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 4: The Purity Ritual -->
+<section class="py-stack-lg bg-surface" id="purity">
+<div class="max-w-container-max mx-auto px-6 md:px-margin-desktop">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-stack-sm">
+<div class="max-w-2xl">
+<span class="text-secondary font-label-md uppercase tracking-widest">Our Promise</span>
+<h2 class="font-display-lg text-display-lg-mobile md:text-headline-lg text-primary mt-2">Built On Unwavering Trust.</h2>
+</div>
+<button class="text-primary font-label-md flex items-center gap-2 hover:translate-x-1 transition-transform">
+                    View Lab Certifications <span class="material-symbols-outlined">north_east</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<div class="p-stack-sm bg-white rounded-3xl shadow-sm border border-outline-variant/30 flex flex-col gap-4 hover:shadow-xl transition-shadow group">
+<div class="w-16 h-16 rounded-2xl bg-surface-container-high flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 0;">science</span>
+</div>
+<h4 class="font-headline-md text-primary">Double Testing</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">Every batch undergoes rigorous quality testing at the farm and distribution center.</p>
+</div>
+<div class="p-stack-sm bg-white rounded-3xl shadow-sm border border-outline-variant/30 flex flex-col gap-4 hover:shadow-xl transition-shadow group">
+<div class="w-16 h-16 rounded-2xl bg-surface-container-high flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 0;">verified_user</span>
+</div>
+<h4 class="font-headline-md text-primary">Live Auditing</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">Request a live doorstep purity test. We carry kits to prove our quality on the spot.</p>
+</div>
+<div class="p-stack-sm bg-white rounded-3xl shadow-sm border border-outline-variant/30 flex flex-col gap-4 hover:shadow-xl transition-shadow group">
+<div class="w-16 h-16 rounded-2xl bg-surface-container-high flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 0;">thumb_down</span>
+</div>
+<h4 class="font-headline-md text-primary">Authority To Reject</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">Customers have the authority to reject delivery if temperature or taste isn't perfect.</p>
+</div>
+<div class="p-stack-sm bg-white rounded-3xl shadow-sm border border-outline-variant/30 flex flex-col gap-4 hover:shadow-xl transition-shadow group">
+<div class="w-16 h-16 rounded-2xl bg-surface-container-high flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 0;">sanitizer</span>
+</div>
+<h4 class="font-headline-md text-primary">Glass Sanitization</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">5-step chemical-free ultrasonic sanitization for every single glass bottle.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 5: Farm Fresh Products -->
+<section class="py-stack-lg bg-surface-dim relative" id="products">
+<div class="max-w-container-max mx-auto px-6 md:px-margin-desktop">
+<div class="text-center mb-16">
+<span class="text-secondary font-label-md uppercase tracking-widest">The Farmer's Market</span>
+<h2 class="font-display-lg text-display-lg-mobile md:text-headline-lg text-primary mt-2">Daily Essentials, Delivered Fresh.</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Product 1 -->
+<div class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 group">
+<div class="relative h-64 overflow-hidden">
+<img alt="Fresh Milk" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida/AP1WRLvAznHpBDY5hqQ3J9MDE2RshHOUgicvmUNNpblxWcxEF0EL-OR3BrWf8IEe2e8qd8Y4bkCMSeSQMt5z1x_3So91agR5hxnncPSpGeAGGxZqToj7xSm95Y99_fJdYdCF6dNQPPH3Hr1oS_qUFK_XUM7y5tJtdiT5Eptpt7zXeYTudAjfBtasRv7Ua9jUqn8fUjOVE0NRu_klAgGeWS-ATQP02kfTVzEFCVBQzzWEy4qnwf2YheYRgnKzOxfF"/>
+<div class="absolute top-4 right-4 bg-tertiary-fixed text-on-tertiary-fixed px-3 py-1 rounded-full font-label-md flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span> Best Seller
+                        </div>
+</div>
+<div class="p-6">
+<h3 class="font-headline-md text-primary mb-1">A2 Buffalo Milk</h3>
+<p class="text-sm text-on-surface-variant mb-4">Farm fresh, unadulterated, chilled glass bottle.</p>
+<div class="flex items-center justify-between">
+<span class="font-headline-md text-secondary">₹90 / Litre</span>
+<button class="p-2 bg-secondary/10 text-secondary rounded-full hover:bg-secondary hover:text-white transition-colors">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product 2 -->
+<div class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 group">
+<div class="relative h-64 overflow-hidden">
+<img alt="Pot Curd" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida/AP1WRLtaJK1oKoS_LrPI29yLHzPjBCxvVYXsmz1pS7O7iizOVNGZjGrcpOuxF7_HBEBAkpaDiypRtFbx6C9Qt0U7kREy0oD31QXBloiEm3B6jC7IHetHGLHLh4k-R8olOCDk0KHxy0oxKOFrNkXHHfEpCtlqRITWWmIdgaBaasIX_FO_NWT-tzvHwsadMBdOSNScD_z0V1xknMNsOabfiCkyqoCdtL4E9p6Tse4ub4XdcTjNXnQa0mK5ZxiIclV4"/>
+</div>
+<div class="p-6">
+<h3 class="font-headline-md text-primary mb-1">Pot Set Curd</h3>
+<p class="text-sm text-on-surface-variant mb-4">Set in traditional clay pots for thick, creamy texture.</p>
+<div class="flex items-center justify-between">
+<span class="font-headline-md text-secondary">₹60 / 500g</span>
+<button class="p-2 bg-secondary/10 text-secondary rounded-full hover:bg-secondary hover:text-white transition-colors">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product 3 -->
+<div class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 group">
+<div class="relative h-64 overflow-hidden">
+<img alt="Paneer" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida/AP1WRLsBSUOBcmEQERQsGXm8Dl28V7oj0L2ub61nVMejFq6Bgt_R0_cCi1ELeORt9N4pFepfDDP_pESQg0iZEPbELjNbma_gzvIzSleOKbt8jPPYBMD7eRCfmLh1mE4gM3L_shCHuqLkOoN2lKiW2wqnJaUqBT2_Hmx5vyxRPuEhIzzOFirrtC50yv93KTnfysqxRxWhnPEdWOELTmHKfmpnKs8ECG9Z0mtL2KqFzpet5TmYbmXoiZMk_N0mJ8k"/>
+</div>
+<div class="p-6">
+<h3 class="font-headline-md text-primary mb-1">Hand-Pressed Paneer</h3>
+<p class="text-sm text-on-surface-variant mb-4">Fresh malai paneer, pressed traditionally.</p>
+<div class="flex items-center justify-between">
+<span class="font-headline-md text-secondary">₹120 / 200g</span>
+<button class="p-2 bg-secondary/10 text-secondary rounded-full hover:bg-secondary hover:text-white transition-colors">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product 4 -->
+<div class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 group">
+<div class="relative h-64 overflow-hidden">
+<img alt="Ghee" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida/AP1WRLvQDn9D9yZQWb-YshbebnGL9JxjV1EEWKQczf93HbZNsa_HuSyyVj3sjmJ4xK5JKLnLKThVA6l1FNlnrA0Q_pu_PBQY2SPDA0t_ruX8njt4MyxJN2knr2ltruLSWIIdhjEB2QsRA-xamMn4PVIS4xmNAmGD614RL0dL6wPCsANup_j9gs2Z0G_HRPEZqwc_d5nmgd_erxXCX7Xb21dkwDXzzhD7qiC7rNdBip67M8ZC3zoqDkRxKwhFteY"/>
+<div class="absolute top-4 right-4 bg-tertiary-fixed text-on-tertiary-fixed px-3 py-1 rounded-full font-label-md flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">workspace_premium</span> Artisanal
+                        </div>
+</div>
+<div class="p-6">
+<h3 class="font-headline-md text-primary mb-1">Vedic Bilona Ghee</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed">Slow-cooked A2 ghee from hand-churned butter.</p>
+<div class="flex items-center justify-between">
+<span class="font-headline-md text-secondary">₹850 / 500ml</span>
+<button class="p-2 bg-secondary/10 text-secondary rounded-full hover:bg-secondary hover:text-white transition-colors">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 6: Comparison -->
+<section class="py-stack-lg bg-white overflow-hidden">
+<div class="max-w-container-max mx-auto px-6 md:px-margin-desktop">
+<h2 class="font-display-lg text-display-lg-mobile md:text-headline-lg text-primary text-center mb-16">Why We Are Different.</h2>
+<div class="relative overflow-x-auto rounded-[2rem] shadow-xl border border-outline-variant/30">
+<table class="w-full text-left border-collapse min-w-[600px]">
+<thead>
+<tr class="bg-primary text-white">
+<th class="p-8 font-headline-md">Feature</th>
+<th class="p-8 font-headline-md bg-secondary/20">Nandhavanam</th>
+<th class="p-8 font-headline-md opacity-50">Market Milk</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/30 font-body-md">
+<tr class="hover:bg-surface-container transition-colors">
+<td class="p-8 font-semibold">Packaging</td>
+<td class="p-8 text-secondary font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-green-600">check_circle</span> Recyclable Glass
+                            </td>
+<td class="p-8 text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-red-400">cancel</span> Single-use Plastic
+                            </td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors">
+<td class="p-8 font-semibold">Cold Chain</td>
+<td class="p-8 text-secondary font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-green-600">check_circle</span> End-to-end (Sub 4°C)
+                            </td>
+<td class="p-8 text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-red-400">cancel</span> Broken (Retailers)
+                            </td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors">
+<td class="p-8 font-semibold">Auditing</td>
+<td class="p-8 text-secondary font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-green-600">check_circle</span> Live Doorstep Check
+                            </td>
+<td class="p-8 text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-red-400">cancel</span> None / Lab Only
+                            </td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors">
+<td class="p-8 font-semibold">Time to Door</td>
+<td class="p-8 text-secondary font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-green-600">check_circle</span> &lt; 4 Hours
+                            </td>
+<td class="p-8 text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-red-400">cancel</span> 12 - 24 Hours
+                            </td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<!-- Section 7: Farm Family Stories -->
+<section class="py-stack-lg bg-surface-container relative overflow-hidden">
+<div class="max-w-container-max mx-auto px-6 md:px-margin-desktop">
+<h2 class="font-display-lg text-display-lg-mobile md:text-headline-lg text-primary text-center mb-16">Stories From The Table.</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Review 1 -->
+<div class="bg-white p-8 rounded-3xl shadow-sm border border-outline-variant/30 relative">
+<div class="flex items-center gap-1 text-secondary-fixed-dim mb-4">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-on-surface-variant font-body-md mb-6 leading-relaxed">"The difference is evident from the first sip. My kids, who used to hate milk, now wait for the glass bottle to arrive at 7 AM. Truly pure."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold">AK</div>
+<div>
+<p class="font-headline-md text-sm">Ananya K.</p>
+<p class="text-xs text-on-surface-variant">Jubilee Hills • Subscribed 14m</p>
+</div>
+</div>
+</div>
+<!-- Review 2 -->
+<div class="bg-white p-8 rounded-3xl shadow-sm border border-outline-variant/30 relative">
+<div class="flex items-center gap-1 text-secondary-fixed-dim mb-4">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-on-surface-variant font-body-md mb-6 leading-relaxed">"I requested a doorstep audit last week. The rider was professional and the test kit showed 0% adulteration. Now I'm a lifelong customer."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold">VS</div>
+<div>
+<p class="font-headline-md text-sm">Vikram S.</p>
+<p class="text-xs text-on-surface-variant">Gachibowli • Subscribed 8m</p>
+</div>
+</div>
+</div>
+<!-- Review 3 -->
+<div class="bg-white p-8 rounded-3xl shadow-sm border border-outline-variant/30 relative">
+<div class="flex items-center gap-1 text-secondary-fixed-dim mb-4">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-on-surface-variant font-body-md mb-6 leading-relaxed">"Their Bilona ghee has that nostalgic aroma of my grandmother's kitchen. Worth every penny for the health benefits it brings."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold">RP</div>
+<div>
+<p class="font-headline-md text-sm">Ritu P.</p>
+<p class="text-xs text-on-surface-variant">Madhapur • Subscribed 2y</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 8: Join The Farm Family (Sunset CTA) -->
+<section class="relative py-stack-lg min-h-[60vh] flex items-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="Cinematic wide shot of a lush green dairy farm at sunset." class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AP1WRLviQwAriJdv69FViUrrRfjfj_MujcytElywO2KWc7cMwIvy15-dJYI8WIxjnVN_i2OLJRjSKr6KTEUMOM4KoERRz0bfGznYngtitzjinKKPCaROy8ZXmCyIUaqUdHQhyIj2jhx3mt19LyOQ7bkD1013RYO-nIDS8zJcVKCCv7kplw1JNHuG-4plPzrUI8Gi9ayDJvekRqF3FNLxON5Wt7W1Ju0Q5DZGIQFEQJHrBItvimNNtZtYc8KiPVvJ"/>
+<div class="absolute inset-0 bg-primary/80 mix-blend-multiply"></div>
+</div>
+<div class="relative z-10 w-full max-w-container-max mx-auto px-6 md:px-margin-desktop text-center">
+<h2 class="font-display-lg text-display-lg-mobile md:text-display-lg text-white mb-8">Start Your Purity Journey Tomorrow.</h2>
+<p class="text-primary-fixed/90 font-body-lg max-w-2xl mx-auto mb-12">Join 500+ families receiving fresh, unadulterated farm essentials every morning. No long-term commitment, pause anytime.</p>
+<div class="flex flex-col sm:flex-row justify-center gap-6">
+<button class="bg-secondary-fixed text-on-secondary-fixed px-10 py-5 rounded-full font-headline-md hover:shadow-[0_0_40px_rgba(173,246,130,0.5)] transition-all transform hover:-translate-y-1">
+                    Start Your 2-Day Free Trial
+                </button>
+<a class="flex items-center gap-3 bg-white/10 backdrop-blur-md border border-white/20 text-white px-10 py-5 rounded-full font-headline-md hover:bg-white/20 transition-all" href="#">
+<span class="material-symbols-outlined">chat</span>
+                    Order on WhatsApp
+                </a>
+</div>
+<div class="mt-16 flex flex-wrap justify-center gap-gutter opacity-60 grayscale hover:grayscale-0 transition-all">
+<div class="flex items-center gap-2 text-white font-label-md">
+<span class="material-symbols-outlined">verified</span> FSSAI Certified
+                </div>
+<div class="flex items-center gap-2 text-white font-label-md">
+<span class="material-symbols-outlined">eco</span> 100% Organic Fodder
+                </div>
+<div class="flex items-center gap-2 text-white font-label-md">
+<span class="material-symbols-outlined">recycling</span> Zero Plastic Policy
+                </div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-surface-dim dark:bg-inverse-surface border-t border-outline-variant/20 pt-stack-lg pb-10">
+<div class="max-w-container-max mx-auto px-6 md:px-margin-desktop">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter mb-20">
+<div class="lg:col-span-1">
+<div class="flex items-center gap-4 mb-6">
+<img alt="Logo" class="h-10 w-10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8xwFpjFJqljk7YavLexbc-1x8h0pNKBNf1I-6gxV3h19rXpTku7ziPQLprUFXJvu0mVewv63gh74d2iyyaaF-zCkUsw1VwDOMMP0WU5sTODgowQMw6DeEjcLyc-ieV6HW0Ga1i9AQAUzu3OaSVf_LMRiFAodf1PRKpYRA9r5jYNt7heeDQNSoM2YjXR7-qlqn8GGSbyaSz-Qq1jNWARqHkDxk6PV_4xNKOw8t1UzlCU68H_wFpLENl_OcpNGYjPVQMCynOT1gky_C"/>
+<span class="font-headline-lg text-headline-lg text-primary dark:text-primary-fixed">Nandhavanam</span>
+</div>
+<p class="text-on-surface-variant font-body-md leading-relaxed mb-6">
+                        Harvesting health, one bottle at a time. Experience the true essence of Brahma Muhurtham purity.
+                    </p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all" href="#"><span class="material-symbols-outlined">public</span></a>
+<a class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all" href="#"><span class="material-symbols-outlined">chat</span></a>
+<a class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all" href="#"><span class="material-symbols-outlined">mail</span></a>
+</div>
+</div>
+<div>
+<h5 class="font-headline-md text-primary mb-6">Quick Links</h5>
+<ul class="space-y-4">
+<li><a class="text-on-surface-variant font-body-md hover:text-primary hover:translate-x-1 transition-all inline-block" href="#">The Farm Experience</a></li>
+<li><a class="text-on-surface-variant font-body-md hover:text-primary hover:translate-x-1 transition-all inline-block" href="#">Quality Standards</a></li>
+<li><a class="text-on-surface-variant font-body-md hover:text-primary hover:translate-x-1 transition-all inline-block" href="#">Subscription Plans</a></li>
+<li><a class="text-on-surface-variant font-body-md hover:text-primary hover:translate-x-1 transition-all inline-block" href="#">Corporate Orders</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-headline-md text-primary mb-6">Sustainability</h5>
+<ul class="space-y-4">
+<li><a class="text-on-surface-variant font-body-md hover:text-primary hover:translate-x-1 transition-all inline-block" href="#">Glass Bottle Ritual</a></li>
+<li><a class="text-on-surface-variant font-body-md hover:text-primary hover:translate-x-1 transition-all inline-block" href="#">Farm Visit Request</a></li>
+<li><a class="text-on-surface-visitor font-body-md hover:text-primary hover:translate-x-1 transition-all inline-block" href="#">Cow Welfare Policy</a></li>
+<li><a class="text-on-surface-variant font-body-md hover:text-primary hover:translate-x-1 transition-all inline-block" href="#">FSSAI Certificate</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-headline-md text-primary mb-6">Contact Us</h5>
+<div class="space-y-4">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary">location_on</span>
+<span class="text-on-surface-variant font-body-md">Plot No 137, Hastinapuram, Hyderabad, Telangana</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary">call</span>
+<span class="text-on-surface-variant font-body-md">+91 99593 06634</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary">mail</span>
+<span class="text-on-surface-variant font-body-md">Nandhavanammilk@gmail.com</span>
+</div>
+</div>
+</div>
+</div>
+<div class="pt-8 border-t border-outline-variant/20 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-on-surface-variant font-body-md text-sm">© 2025 Nandhavanam. Harvested with Love in Hyderabad.</p>
+<div class="flex gap-8">
+<a class="text-on-surface-variant font-body-md text-sm hover:text-primary" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant font-body-md text-sm hover:text-primary" href="#">Terms of Service</a>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Header scroll behavior
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('py-2', 'shadow-lg');
+                header.classList.remove('py-4', 'shadow-sm');
+            } else {
+                header.classList.add('py-4', 'shadow-sm');
+                header.classList.remove('py-2', 'shadow-lg');
+            }
+        });
+    </script>
+</body></html>
