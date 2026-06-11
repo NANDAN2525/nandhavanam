@@ -23,7 +23,7 @@ export default function Icon() {
           justifyContent: 'center',
         }}
       >
-        <img src={src} style={{ width: 48, height: 48, objectFit: 'contain' }} />
+        <img src={src} alt="Nandhavanam Icon" style={{ width: 48, height: 48, objectFit: 'contain' }} />
       </div>
     ),
     { width: 48, height: 48 }

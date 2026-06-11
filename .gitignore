@@ -49,3 +49,4 @@ test-results/
 .cache/
 .turbo/
 dist/
+.claude
