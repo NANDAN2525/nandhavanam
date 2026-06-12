@@ -9,7 +9,7 @@ const CtaSection = dynamic(() => import('@/components/sections/CtaSection'))
 export const metadata: Metadata = {
   title: 'Delivery Areas | Nandhavanam — Hyderabad',
   description:
-    'Check if Nandhavanam delivers fresh buffalo milk to your area. We currently serve Hastinapuram, Nagole, Kothapet, Dilsukhnagar, LB Nagar, Saroornagar, Champapet, Vanasthalipuram, Mallapur and Uppal.',
+    'Request delivery of fresh buffalo milk in your area. We currently serve Hastinapuram and nearby areas and are expanding rapidly.',
 }
 
 export default function DeliveryPage() {

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { CONTACT_PHONE, CONTACT_EMAIL } from '@/lib/data'
 
 export const metadata: Metadata = {
   title: 'Terms of Service | Nandhavanam',
@@ -95,14 +96,14 @@ export default function TermsOfService() {
             <p>
               For queries, reach us at{' '}
               <a
-                href="mailto:Nandhavanammilk@gmail.com"
+                href={`mailto:${CONTACT_EMAIL}`}
                 className="text-secondary font-semibold hover:underline"
               >
-                Nandhavanammilk@gmail.com
+                {CONTACT_EMAIL}
               </a>{' '}
               or{' '}
-              <a href="tel:+919959306634" className="text-secondary font-semibold hover:underline">
-                +91 99593 06634
+              <a href={`tel:${CONTACT_PHONE.replace(/\s+/g, '')}`} className="text-secondary font-semibold hover:underline">
+                {CONTACT_PHONE}
               </a>
               .
             </p>

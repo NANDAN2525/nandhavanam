@@ -1,48 +1,31 @@
 'use client'
 
 import { useState } from 'react'
-import { MapPin, CheckCircle2, XCircle, Loader2, ArrowRight } from 'lucide-react'
+import { MapPin, CheckCircle2, Loader2, Send } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { SectionLabel } from '@/components/ui/SectionLabel'
 import { Button } from '@/components/ui/Button'
-import { useTrialModal } from '@/components/TrialModalProvider'
-
-const SERVICEABLE = new Map([
-  ['500079', 'Hastinapuram'],
-  ['500035', 'Nagole'],
-  ['500036', 'Kothapet'],
-  ['500059', 'Dilsukhnagar'],
-  ['500074', 'LB Nagar'],
-  ['500060', 'Saroornagar'],
-  ['500070', 'Champapet'],
-  ['500068', 'Vanasthalipuram'],
-  ['500097', 'Mallapur'],
-  ['500076', 'Uppal'],
-])
-
-const NOTIFY_WA = 'https://wa.me/919959306634?text=Hi%2C+please+notify+me+when+Nandhavanam+delivers+to+my+area.'
-
-type Status = 'idle' | 'checking' | 'available' | 'unavailable'
+import { WHATSAPP_URL } from '@/lib/data'
 
 export default function DeliveryChecker() {
-  const { openModal } = useTrialModal()
-  const [pincode, setPincode] = useState('')
-  const [status, setStatus] = useState<Status>('idle')
-  const [areaName, setAreaName] = useState('')
+  const [form, setForm] = useState({ name: '', phone: '', location: '', landmark: '' })
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
 
-  function handleCheck() {
-    const trimmed = pincode.trim()
-    if (trimmed.length !== 6 || !/^\d{6}$/.test(trimmed)) return
-    setStatus('checking')
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!form.name || !form.phone || !form.location) return
+    setStatus('submitting')
+    
+    await new Promise(r => setTimeout(r, 400))
+    setStatus('success')
+    
+    const baseWa = WHATSAPP_URL.split('?')[0]
+    const msg = `Hi! I'd like to request delivery in my area.\nName: ${form.name}\nPhone: ${form.phone}\nLocation: ${form.location}${form.landmark ? `\nLandmark: ${form.landmark}` : ''}`
+    
     setTimeout(() => {
-      const area = SERVICEABLE.get(trimmed)
-      if (area) { setAreaName(area); setStatus('available') }
-      else { setAreaName(''); setStatus('unavailable') }
-    }, 600)
-  }
-
-  function handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
-    if (e.key === 'Enter') handleCheck()
+      window.open(`${baseWa}?text=${encodeURIComponent(msg)}`, '_blank')
+      setForm({ name: '', phone: '', location: '', landmark: '' })
+    }, 800)
   }
 
   return (
@@ -58,30 +41,19 @@ export default function DeliveryChecker() {
           >
             <SectionLabel>Delivery Areas</SectionLabel>
             <h2 className="font-display font-bold text-3xl md:text-5xl text-primary mt-2 mb-4 md:mb-5 leading-tight">
-              Do We Deliver <br className="hidden md:block" />
-              To Your Door?
+              Request Delivery <br className="hidden md:block" />
+              In Your Area
             </h2>
-            <p className="text-on-surface-variant text-sm md:text-base leading-relaxed mb-6 md:mb-8">
-              Enter your 6-digit pincode below to check if we deliver in your area.
-              We are expanding fast — if your area is not listed, drop us a message
-              and we will let you know as soon as we arrive near you.
+            <p className="text-on-surface-variant text-sm md:text-base leading-relaxed mb-6">
+              We currently serve Hastinapuram and nearby areas. If you are located in or around these zones, or want to request delivery for your colony, let us know! We track all location requests to plan our next expansion zones.
             </p>
-
-            {/* Areas list */}
-            <div className="flex flex-wrap gap-2">
-              {Array.from(SERVICEABLE.values()).map((area) => (
-                <span
-                  key={area}
-                  className="flex items-center gap-1 text-xs font-semibold text-secondary bg-secondary/10 px-3 py-1.5 rounded-full"
-                >
-                  <MapPin className="w-3 h-3" />
-                  {area}
-                </span>
-              ))}
+            <div className="flex items-center gap-2 text-xs font-semibold text-secondary bg-secondary/10 px-3 py-1.5 rounded-full w-max">
+              <MapPin className="w-3.5 h-3.5" />
+              Currently serving Hastinapuram &amp; nearby areas
             </div>
           </motion.div>
 
-          {/* Right — checker card */}
+          {/* Right — form card */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -89,84 +61,119 @@ export default function DeliveryChecker() {
             transition={{ duration: 0.8, ease: 'easeOut', delay: 0.1 }}
           >
             <div className="bg-surface-container rounded-3xl p-6 md:p-8 border border-outline-variant/30 shadow-sm">
-              <h3 className="font-display font-bold text-lg md:text-xl text-primary mb-5 md:mb-6">
-                Check Your Pincode
+              <h3 className="font-display font-bold text-lg md:text-xl text-primary mb-5">
+                Check Availability / Request Area
               </h3>
 
-              <div className="flex gap-2 md:gap-3 mb-5">
-                <label htmlFor="pincode-input" className="sr-only">Enter your pincode</label>
-                <input
-                  id="pincode-input"
-                  type="text"
-                  inputMode="numeric"
-                  maxLength={6}
-                  placeholder="e.g. 500079"
-                  value={pincode}
-                  onChange={e => { setPincode(e.target.value.replace(/\D/g, '')); setStatus('idle') }}
-                  onKeyDown={handleKeyDown}
-                  className="flex-1 min-w-0 border border-outline-variant/50 rounded-xl px-3 md:px-4 py-3 text-sm md:text-base font-semibold text-on-surface bg-white focus:outline-none focus:ring-2 focus:ring-primary/40 placeholder:font-normal placeholder:text-on-surface-variant/50"
-                />
-                <Button
-                  variant="primary"
-                  size="md"
-                  onClick={handleCheck}
-                  disabled={pincode.length !== 6}
-                  className="shrink-0"
-                >
-                  {status === 'checking' ? <Loader2 className="w-4 h-4 animate-spin" /> : 'Check'}
-                </Button>
-              </div>
-
-              {status === 'available' && (
+              {status === 'success' ? (
                 <motion.div
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="p-4 md:p-5 bg-green-50 border border-green-200 rounded-2xl"
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="text-center py-6"
                 >
-                  <div className="flex items-start gap-3 mb-4">
-                    <CheckCircle2 className="w-5 h-5 text-green-600 mt-0.5 shrink-0" />
-                    <div>
-                      <p className="font-semibold text-green-800 text-sm">
-                        Great news! We deliver to {areaName}.
-                      </p>
-                      <p className="text-green-700 text-xs mt-1">
-                        Your first delivery can start as early as tomorrow morning.
-                      </p>
-                    </div>
+                  <div className="w-12 h-12 bg-green-50 border border-green-200 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <CheckCircle2 className="w-6 h-6 text-green-600" />
                   </div>
-                  <button
-                    onClick={openModal}
-                    className="w-full flex items-center justify-center gap-2 bg-green-700 hover:bg-green-800 text-white font-bold py-3 rounded-xl text-sm transition-colors"
+                  <h4 className="font-display font-bold text-green-800 text-lg mb-2">Redirecting to WhatsApp...</h4>
+                  <p className="text-green-700 text-sm leading-relaxed">
+                    Opening WhatsApp to send your delivery area request.
+                  </p>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => setStatus('idle')}
+                    className="mt-5"
                   >
-                    Start My Free Trial
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
+                    Submit Another Location
+                  </Button>
                 </motion.div>
-              )}
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div>
+                    <label htmlFor="req-name" className="block text-sm font-semibold text-on-surface mb-1">
+                      Your Name *
+                    </label>
+                    <input
+                      id="req-name"
+                      type="text"
+                      required
+                      placeholder="e.g. Rajesh Kumar"
+                      value={form.name}
+                      onChange={e => setForm({ ...form, name: e.target.value })}
+                      className="w-full border border-outline-variant/50 rounded-xl px-4 py-2.5 text-sm text-on-surface bg-white focus:outline-none focus:ring-2 focus:ring-primary/40 placeholder:text-on-surface-variant/50"
+                    />
+                  </div>
 
-              {status === 'unavailable' && (
-                <motion.div
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="p-4 md:p-5 bg-amber-50 border border-amber-200 rounded-2xl"
-                >
-                  <div className="flex items-start gap-3 mb-4">
-                    <XCircle className="w-5 h-5 text-amber-600 mt-0.5 shrink-0" />
-                    <div>
-                      <p className="font-semibold text-amber-800 text-sm">Not in our zone yet — but expanding soon!</p>
-                      <p className="text-amber-700 text-xs mt-1">
-                        Message us on WhatsApp and we will notify you the day we launch near you.
-                      </p>
-                    </div>
+                  <div>
+                    <label htmlFor="req-phone" className="block text-sm font-semibold text-on-surface mb-1">
+                      WhatsApp / Mobile Number *
+                    </label>
+                    <input
+                      id="req-phone"
+                      type="tel"
+                      required
+                      placeholder="+91 98765 43210"
+                      value={form.phone}
+                      onChange={e => setForm({ ...form, phone: e.target.value })}
+                      className="w-full border border-outline-variant/50 rounded-xl px-4 py-2.5 text-sm text-on-surface bg-white focus:outline-none focus:ring-2 focus:ring-primary/40 placeholder:text-on-surface-variant/50"
+                    />
                   </div>
-                  <button
-                    onClick={() => window.open(NOTIFY_WA, '_blank')}
-                    className="w-full flex items-center justify-center gap-2 bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 rounded-xl text-sm transition-colors"
+
+                  <div>
+                    <label htmlFor="req-location" className="block text-sm font-semibold text-on-surface mb-1">
+                      Delivery Location / Colony Name *
+                    </label>
+                    <input
+                      id="req-location"
+                      type="text"
+                      required
+                      placeholder="e.g. NGO Colony, Hastinapuram"
+                      value={form.location}
+                      onChange={e => setForm({ ...form, location: e.target.value })}
+                      className="w-full border border-outline-variant/50 rounded-xl px-4 py-2.5 text-sm text-on-surface bg-white focus:outline-none focus:ring-2 focus:ring-primary/40 placeholder:text-on-surface-variant/50"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="req-landmark" className="block text-sm font-semibold text-on-surface mb-1">
+                      Landmark (Optional)
+                    </label>
+                    <input
+                      id="req-landmark"
+                      type="text"
+                      placeholder="e.g. Near Hanuman Temple"
+                      value={form.landmark}
+                      onChange={e => setForm({ ...form, landmark: e.target.value })}
+                      className="w-full border border-outline-variant/50 rounded-xl px-4 py-2.5 text-sm text-on-surface bg-white focus:outline-none focus:ring-2 focus:ring-primary/40 placeholder:text-on-surface-variant/50"
+                    />
+                  </div>
+
+                  {status === 'error' && (
+                    <p className="text-red-600 text-xs font-semibold">
+                      An error occurred. Please try again later.
+                    </p>
+                  )}
+
+                  <Button
+                    variant="primary"
+                    size="md"
+                    type="submit"
+                    disabled={status === 'submitting'}
+                    className="w-full justify-center"
                   >
-                    Notify Me on WhatsApp
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
-                </motion.div>
+                    {status === 'submitting' ? (
+                      <>
+                        <Loader2 className="w-4 h-4 animate-spin" />
+                        <span>Submitting...</span>
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-4 h-4" />
+                        <span>Submit Location Request</span>
+                      </>
+                    )}
+                  </Button>
+                </form>
               )}
             </div>
           </motion.div>

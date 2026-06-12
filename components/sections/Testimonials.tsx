@@ -38,7 +38,7 @@ export default function Testimonials() {
                 <Star key={i} className="w-4 h-4 md:w-5 md:h-5 fill-current" />
               ))}
             </div>
-            <p className="text-on-surface-variant text-xs md:text-sm">Based on 500+ verified subscriber reviews</p>
+            <p className="text-on-surface-variant text-xs md:text-sm">Based on Happy Families subscriber reviews</p>
           </div>
         </motion.div>
 

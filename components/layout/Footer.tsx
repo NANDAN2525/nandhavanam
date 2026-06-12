@@ -1,7 +1,14 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { Globe, MessageCircle, Mail, MapPin, Phone } from 'lucide-react'
-import { IMAGES } from '@/lib/data'
+import { Globe, MessageCircle, Mail, MapPin, Phone, Instagram } from 'lucide-react'
+import {
+  IMAGES,
+  WHATSAPP_URL,
+  INSTAGRAM_URL,
+  CONTACT_PHONE,
+  CONTACT_EMAIL,
+  CONTACT_ADDRESS,
+} from '@/lib/data'
 
 const FOOTER_QUICK = [
   { label: 'The Farm Experience', href: '/our-farm' },
@@ -49,7 +56,7 @@ export default function Footer() {
                 <Globe className="w-4 h-4" />
               </a>
               <a
-                href="https://wa.me/919959306634?text=Hi%2C+I%27d+like+to+start+a+trial+for+Nandhavanam+milk."
+                href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-200"
@@ -58,11 +65,20 @@ export default function Footer() {
                 <MessageCircle className="w-4 h-4" />
               </a>
               <a
-                href="mailto:Nandhavanammilk@gmail.com"
+                href={`mailto:${CONTACT_EMAIL}`}
                 className="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-200"
                 aria-label="Send us an email"
               >
                 <Mail className="w-4 h-4" />
+              </a>
+              <a
+                href={INSTAGRAM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-200"
+                aria-label="Follow us on Instagram"
+              >
+                <Instagram className="w-4 h-4" />
               </a>
             </div>
           </div>
@@ -108,25 +124,25 @@ export default function Footer() {
               <li className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-secondary mt-0.5 shrink-0" />
                 <span className="text-on-surface-variant text-sm">
-                  Plot No 137, Hastinapuram, Hyderabad, Telangana
+                  {CONTACT_ADDRESS}
                 </span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-secondary shrink-0" />
                 <a
-                  href="tel:+919959306634"
+                  href={`tel:${CONTACT_PHONE.replace(/\s+/g, '')}`}
                   className="text-on-surface-variant text-sm hover:text-primary transition-colors"
                 >
-                  +91 99593 06634
+                  {CONTACT_PHONE}
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-secondary shrink-0" />
                 <a
-                  href="mailto:Nandhavanammilk@gmail.com"
+                  href={`mailto:${CONTACT_EMAIL}`}
                   className="text-on-surface-variant text-sm hover:text-primary transition-colors"
                 >
-                  Nandhavanammilk@gmail.com
+                  {CONTACT_EMAIL}
                 </a>
               </li>
             </ul>

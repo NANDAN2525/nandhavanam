@@ -3,25 +3,6 @@
 import { useState } from 'react'
 import { CheckCircle2, MessageCircle } from 'lucide-react'
 
-const PLANS = [
-  'Free Trial (2 days, no payment)',
-  'Daily — ₹90 per litre',
-  'Family Pack — ₹160 for 2 litres',
-]
-
-const AREAS = [
-  'Hastinapuram',
-  'Nagole',
-  'Kothapet',
-  'Dilsukhnagar',
-  'LB Nagar',
-  'Saroornagar',
-  'Champapet',
-  'Vanasthalipuram',
-  'Mallapur',
-  'Uppal',
-]
-
 const WA_BASE = 'https://wa.me/919959306634?text='
 
 interface Props {
@@ -29,19 +10,21 @@ interface Props {
 }
 
 export function TrialSignupForm({ onSuccess }: Props) {
-  const [form, setForm] = useState({ name: '', phone: '', area: '', plan: PLANS[0] })
+  const [form, setForm] = useState({ name: '', phone: '', location: '', landmark: '' })
   const [submitted, setSubmitted] = useState(false)
   const [submitting, setSubmitting] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    if (!form.name || !form.phone || !form.location) return
     setSubmitting(true)
+
     await new Promise(r => setTimeout(r, 400))
     setSubmitted(true)
     setSubmitting(false)
     onSuccess?.()
     const msg = encodeURIComponent(
-      `Hi! I'd like to start a trial.\nName: ${form.name}\nPhone: ${form.phone}\nArea: ${form.area}\nPlan: ${form.plan}`
+      `Hi! I'd like to start a Free Trial.\nName: ${form.name}\nPhone: ${form.phone}\nLocation: ${form.location}${form.landmark ? `\nLandmark: ${form.landmark}` : ''}\nPlan: Free Trial`
     )
     setTimeout(() => window.open(WA_BASE + msg, '_blank'), 800)
   }
@@ -64,9 +47,9 @@ export function TrialSignupForm({ onSuccess }: Props) {
     <form onSubmit={handleSubmit} className="p-6 md:p-8">
       <div className="mb-6">
         <h3 className="font-display font-bold text-2xl text-primary mb-1">
-          Start Your Free 2-Day Trial
+          Start Your Free Trial
         </h3>
-        <p className="text-on-surface-variant text-sm">No payment needed. Cancel anytime.</p>
+        <p className="text-on-surface-variant text-sm">Cancel anytime.</p>
       </div>
 
       <div className="space-y-4">
@@ -101,43 +84,38 @@ export function TrialSignupForm({ onSuccess }: Props) {
         </div>
 
         <div>
-          <label htmlFor="trial-area" className="block text-sm font-semibold text-on-surface mb-1.5">
-            Your Delivery Area *
+          <label htmlFor="trial-location" className="block text-sm font-semibold text-on-surface mb-1.5">
+            Delivery Location / Address *
           </label>
-          <select
-            id="trial-area"
+          <input
+            id="trial-location"
+            type="text"
             required
-            value={form.area}
-            onChange={e => setForm({ ...form, area: e.target.value })}
-            className="w-full border border-outline-variant/60 rounded-xl px-4 py-3 text-sm text-on-surface bg-white focus:outline-none focus:ring-2 focus:ring-primary/40"
-          >
-            <option value="">Select your area</option>
-            {AREAS.map(a => (
-              <option key={a} value={a}>{a}</option>
-            ))}
-          </select>
+            placeholder="e.g. Plot No 12, NGO Colony, Hastinapuram"
+            value={form.location}
+            onChange={e => setForm({ ...form, location: e.target.value })}
+            className="w-full border border-outline-variant/60 rounded-xl px-4 py-3 text-sm text-on-surface bg-white focus:outline-none focus:ring-2 focus:ring-primary/40 placeholder:text-on-surface-variant/50"
+          />
         </div>
 
         <div>
-          <label htmlFor="trial-plan" className="block text-sm font-semibold text-on-surface mb-1.5">
-            Plan
+          <label htmlFor="trial-landmark" className="block text-sm font-semibold text-on-surface mb-1.5">
+            Landmark (Optional)
           </label>
-          <select
-            id="trial-plan"
-            value={form.plan}
-            onChange={e => setForm({ ...form, plan: e.target.value })}
-            className="w-full border border-outline-variant/60 rounded-xl px-4 py-3 text-sm text-on-surface bg-white focus:outline-none focus:ring-2 focus:ring-primary/40"
-          >
-            {PLANS.map(p => (
-              <option key={p} value={p}>{p}</option>
-            ))}
-          </select>
+          <input
+            id="trial-landmark"
+            type="text"
+            placeholder="e.g. Opp. Park / Near Temple"
+            value={form.landmark}
+            onChange={e => setForm({ ...form, landmark: e.target.value })}
+            className="w-full border border-outline-variant/60 rounded-xl px-4 py-3 text-sm text-on-surface bg-white focus:outline-none focus:ring-2 focus:ring-primary/40 placeholder:text-on-surface-variant/50"
+          />
         </div>
 
         <button
           type="submit"
           disabled={submitting}
-          className="w-full bg-secondary-fixed text-on-secondary-fixed font-bold py-4 rounded-full text-base hover:opacity-90 active:scale-95 transition-all flex items-center justify-center gap-2 disabled:opacity-70"
+          className="w-full bg-secondary-fixed text-on-secondary-fixed font-bold py-4 rounded-full text-base hover:opacity-90 active:scale-95 transition-all flex items-center justify-center gap-2 disabled:opacity-70 mt-4"
         >
           <MessageCircle className="w-4 h-4" />
           {submitting ? 'Booking…' : 'Book My Free Trial'}

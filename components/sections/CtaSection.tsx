@@ -37,10 +37,10 @@ export default function CtaSection() {
           transition={{ duration: 0.8, ease: 'easeOut' }}
         >
           <h2 className="font-display font-bold text-3xl md:text-6xl text-white mb-4 md:mb-6 leading-tight">
-            Start Your Purity Journey Tomorrow.
+            Start Your Purity Journey Today.
           </h2>
           <p className="text-primary-fixed/90 text-sm md:text-lg max-w-2xl mx-auto mb-8 md:mb-12 leading-relaxed">
-            Join 500+ families receiving fresh, unadulterated farm essentials every morning.
+            Join our Happy Families receiving fresh, unadulterated farm essentials daily.
             No long-term commitment — pause anytime.
           </p>
 
