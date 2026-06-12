@@ -45,7 +45,7 @@ export default function Hero() {
           </h1>
 
           <p className="text-sm sm:text-base md:text-lg text-white/85 max-w-xl mb-5 md:mb-6 leading-relaxed">
-            Milked at 5 AM. At your door by 7:30 AM. Delivered in sanitised glass bottles — fresh, pure and unadulterated, every single morning.
+            Freshly collected, tested, and delivered in sanitised glass bottles within 3–4 hours of harvest — fresh, pure and unadulterated, every single day.
           </p>
 
           {/* Trust bar */}
@@ -56,7 +56,7 @@ export default function Hero() {
                   <Star key={i} className="w-3 h-3 fill-current" />
                 ))}
               </div>
-              <span className="text-white text-xs font-semibold">500+ families</span>
+              <span className="text-white text-xs font-semibold">Happy Families</span>
             </div>
             <div className="flex items-center gap-1 bg-white/15 backdrop-blur-sm rounded-full px-3 py-1.5">
               <BadgeCheck className="w-3 h-3 text-secondary-fixed" />

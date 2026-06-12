@@ -27,15 +27,15 @@ export default function MorningTimeline() {
           transition={{ duration: 0.7 }}
         >
           <h2 className="font-display font-bold text-3xl md:text-5xl text-primary-fixed mb-3">
-            The Morning Ritual
+            The Journey of Purity
           </h2>
           <p className="text-primary-fixed/70 text-base md:text-lg">
-            From udder to your doorstep in less than 4 hours.
+            Farm Fresh → Quality Tested → Packed with Care → Delivered to Your Home
           </p>
         </motion.div>
 
         <motion.div
-          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-4"
+          className="grid grid-cols-2 lg:grid-cols-4 gap-4"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -45,10 +45,7 @@ export default function MorningTimeline() {
             <motion.div
               key={step.time}
               variants={cardVariants}
-              className={`group relative flex flex-col items-center text-center p-4 md:p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:bg-white/10 transition-colors duration-300 ${
-                // Hide the 5th card on 2-col layout so we get 2+2+1 → move last to full-row span
-                index === 4 ? 'col-span-2 sm:col-span-1' : ''
-              }`}
+              className="group relative flex flex-col items-center text-center p-4 md:p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:bg-white/10 transition-colors duration-300"
             >
               {index < TIMELINE_STEPS.length - 1 && (
                 <div className="hidden lg:block absolute top-1/2 -right-2 w-4 h-0.5 bg-secondary-fixed/30" />

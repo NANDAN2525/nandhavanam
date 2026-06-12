@@ -10,11 +10,11 @@ const plans = [
   {
     name: 'Free Trial',
     price: '₹0',
-    period: '2-day trial',
+    period: 'Free Trial',
     description: 'Try before you commit. No payment needed.',
     perks: [
-      '200 ml glass bottle, 2 mornings',
-      'Delivered before 7:30 AM',
+      '200 ml glass bottle',
+      'Delivered to your home',
       'No card required',
       'Cancel after trial — no questions',
     ],
@@ -23,11 +23,11 @@ const plans = [
   },
   {
     name: 'Daily Subscription',
-    price: '₹90',
+    price: process.env.NEXT_PUBLIC_PRICE_DAILY_SUBSCRIPTION || '₹100',
     period: 'per litre / day',
-    description: 'The most popular plan for families of 3–5.',
+    description: 'The most popular plan.',
     perks: [
-      '1 litre every morning',
+      '1/day',
       'Glass bottle, door delivery',
       'Pause or cancel any time',
       'Weekly billing via UPI or cash',
@@ -37,14 +37,12 @@ const plans = [
   },
   {
     name: 'Family Pack',
-    price: '₹160',
-    period: 'per 2 litres / day',
+    price: process.env.NEXT_PUBLIC_PRICE_FAMILY_PACK || '₹270',
+    period: 'per 3 litres / day',
     description: 'For larger families or those who love extra chai.',
     perks: [
-      '2 litres every morning',
+      '3/day',
       'Priority delivery slot',
-      'Includes 500g Clay Pot Curd twice a week',
-      'Monthly billing at 5% discount',
     ],
     cta: 'Order Family Pack',
     highlight: false,
@@ -93,7 +91,7 @@ export default function Pricing() {
         >
           <div className="inline-flex items-start sm:items-center gap-2 bg-red-50 border border-red-200 text-red-700 text-xs sm:text-sm font-semibold px-4 py-2.5 rounded-full text-center">
             <AlertCircle className="w-4 h-4 shrink-0 mt-0.5 sm:mt-0" />
-            <span>Limited delivery slots remaining this week in Hastinapuram &amp; Nagole</span>
+            <span>Limited delivery slots remaining this week in nearby Hastinapuram areas</span>
           </div>
         </motion.div>
 
@@ -160,7 +158,7 @@ export default function Pricing() {
                 </Button>
                 {plan.highlight && (
                   <p className="text-center text-xs text-white/60 mt-2.5">
-                    Pause or cancel anytime · No contract · First delivery tomorrow
+                    Pause or cancel anytime · No contract · First delivery today
                   </p>
                 )}
               </div>

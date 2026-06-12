@@ -8,9 +8,9 @@ const Comparison = dynamic(() => import('@/components/sections/Comparison'))
 const CtaSection = dynamic(() => import('@/components/sections/CtaSection'))
 
 export const metadata: Metadata = {
-  title: 'Customer Reviews | Nandhavanam — 500+ Happy Families',
+  title: 'Customer Reviews | Nandhavanam — Happy Families',
   description:
-    '4.9 stars from 500+ verified families across Hyderabad. Read real reviews from Nandhavanam subscribers who get fresh farm-to-door buffalo milk delivered every morning.',
+    '4.9 stars from verified Happy Families across Hyderabad. Read real reviews from Nandhavanam subscribers who get fresh farm-to-door buffalo milk delivered daily.',
 }
 
 export default function ReviewsPage() {

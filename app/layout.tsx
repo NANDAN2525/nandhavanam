@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Montserrat, Inter } from 'next/font/google'
 import Script from 'next/script'
 import { TrialModalProvider } from '@/components/TrialModalProvider'
+import { CONTACT_PHONE, CONTACT_EMAIL, CONTACT_ADDRESS } from '@/lib/data'
 import './globals.css'
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
@@ -29,7 +30,7 @@ export const metadata: Metadata = {
     template: '%s | Nandhavanam',
   },
   description:
-    'Get pure buffalo milk delivered to your door before 7:30 AM in Hyderabad. Collected at Brahma Muhurtham, tested for purity, delivered in sterilised glass bottles. No adulteration. No plastic. Free 2-day trial.',
+    'Get pure buffalo milk delivered directly to your door in Hyderabad. Collected at Brahma Muhurtham, tested for purity, delivered in sterilised glass bottles. No adulteration. No plastic. Free Trial.',
   keywords: [
     'pure buffalo milk Hyderabad',
     'farm fresh milk delivery Hyderabad',
@@ -49,7 +50,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Nandhavanam | Farm-Fresh Pure Buffalo Milk, Hyderabad',
     description:
-      'Pure buffalo milk delivered before 7:30 AM in sterilised glass bottles. Collected at Brahma Muhurtham. Free 2-day trial for Hyderabad families.',
+      'Pure buffalo milk delivered in sterilised glass bottles. Collected at Brahma Muhurtham. Free Trial for Hyderabad families.',
     url: BASE_URL,
     siteName: 'Nandhavanam',
     type: 'website',
@@ -67,7 +68,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Nandhavanam | Pure Buffalo Milk, Hyderabad',
     description:
-      'Farm-fresh buffalo milk delivered before 7:30 AM. No adulteration, no plastic, no compromise.',
+      'Farm-fresh buffalo milk delivered to your door. No adulteration, no plastic, no compromise.',
     images: ['/images/milk-bottle.jpg'],
   },
   robots: {
@@ -88,13 +89,13 @@ const jsonLd = {
       '@id': `${BASE_URL}/#business`,
       name: 'Nandhavanam',
       description:
-        'Farm-fresh pure buffalo milk and dairy products delivered to your door before 7:30 AM in Hyderabad.',
+        'Farm-fresh pure buffalo milk and dairy products delivered to your door in Hyderabad.',
       url: BASE_URL,
-      telephone: '+919959306634',
-      email: 'Nandhavanammilk@gmail.com',
+      telephone: CONTACT_PHONE,
+      email: CONTACT_EMAIL,
       address: {
         '@type': 'PostalAddress',
-        streetAddress: 'Plot No 137, Hastinapuram',
+        streetAddress: CONTACT_ADDRESS,
         addressLocality: 'Hyderabad',
         addressRegion: 'Telangana',
         postalCode: '500079',
@@ -122,11 +123,11 @@ const jsonLd = {
       '@type': 'Product',
       name: 'Pure Buffalo Milk',
       description:
-        'Farm-fresh pure buffalo milk collected at Brahma Muhurtham and delivered in sterilised glass bottles before 7:30 AM.',
+        'Farm-fresh pure buffalo milk collected at Brahma Muhurtham and delivered in sterilised glass bottles.',
       brand: { '@type': 'Brand', name: 'Nandhavanam' },
       offers: {
         '@type': 'Offer',
-        price: '90',
+        price: '100',
         priceCurrency: 'INR',
         availability: 'https://schema.org/InStock',
         seller: { '@type': 'Organization', name: 'Nandhavanam' },

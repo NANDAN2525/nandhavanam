@@ -3,11 +3,11 @@
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, Instagram } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/Button'
-import { NAV_LINKS, IMAGES } from '@/lib/data'
+import { NAV_LINKS, IMAGES, INSTAGRAM_URL } from '@/lib/data'
 import { useTrialModal } from '@/components/TrialModalProvider'
 
 export default function Navbar() {
@@ -117,6 +117,18 @@ export default function Navbar() {
               >
                 Start Free Trial
               </Button>
+              <div className="flex justify-center gap-4 py-3 mt-3 border-t border-white/10">
+                <a
+                  href={INSTAGRAM_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary-fixed/80 hover:text-secondary-fixed transition-colors flex items-center gap-2 text-sm font-semibold"
+                  aria-label="Follow us on Instagram"
+                >
+                  <Instagram className="w-5 h-5" />
+                  <span>@{INSTAGRAM_URL.split('/').pop()}</span>
+                </a>
+              </div>
             </nav>
           </motion.div>
         )}

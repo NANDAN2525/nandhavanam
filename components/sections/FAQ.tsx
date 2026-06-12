@@ -8,7 +8,7 @@ import { SectionLabel } from '@/components/ui/SectionLabel'
 const faqs = [
   {
     q: 'What time is the milk delivered?',
-    a: 'We deliver before 7:30 AM every day, seven days a week. The milk is collected at Brahma Muhurtham (around 5:00 AM) and reaches your doorstep within 2–3 hours of collection.',
+    a: 'We deliver every day, seven days a week. The milk is collected fresh and reaches your doorstep within 3–4 hours of collection.',
   },
   {
     q: 'Is the milk tested before delivery?',
@@ -24,19 +24,19 @@ const faqs = [
   },
   {
     q: 'Do you deliver outside Hastinapuram?',
-    a: 'Currently we deliver to Hastinapuram, Nagole, Kothapet, Dilsukhnagar, LB Nagar, and nearby areas. Enter your pincode in our delivery checker to confirm availability in your area.',
+    a: 'Currently we serve Hastinapuram and nearby areas. If you are located nearby, you can submit your details in our location request form to request delivery in your area.',
   },
   {
     q: 'How is Nandhavanam milk different from packet milk?',
-    a: 'Packet milk is often pasteurised, homogenised, and packaged hours or days after collection. Our milk goes from the farm to your door in under 4 hours with no processing, no additives, and no plastic packaging.',
+    a: 'Packet milk is often pasteurised, homogenised, and packaged hours or days after collection. Our milk goes from the farm directly to your door with no processing, no additives, and no plastic packaging.',
   },
   {
     q: 'Can I try the milk before subscribing?',
-    a: 'Absolutely. We offer a free 2-day trial of 200 ml each day. Just message us on WhatsApp with your name and address — no payment required.',
+    a: 'Absolutely. We offer a free trial of our milk. Just click on any "Start Free Trial" button, fill in your delivery details, and we will set up your trial delivery.',
   },
   {
     q: 'How do I pay for my subscription?',
-    a: 'We accept cash on delivery or UPI (Google Pay, PhonePe, Paytm). Bills are generated weekly or monthly as per your preference. Monthly advance payments get a 5% discount.',
+    a: 'We accept cash on delivery or UPI (Google Pay, PhonePe, Paytm). Bills are generated weekly or monthly as per your preference.',
   },
 ]
 
