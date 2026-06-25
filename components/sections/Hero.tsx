@@ -1,15 +1,21 @@
-'use client'
+"use client";
 
-import Image from 'next/image'
-import { ArrowRight, MessageCircle, Star, BadgeCheck, MapPin } from 'lucide-react'
-import { motion } from 'framer-motion'
-import { Button } from '@/components/ui/Button'
-import { Badge } from '@/components/ui/Badge'
-import { IMAGES, WHATSAPP_URL } from '@/lib/data'
-import { useTrialModal } from '@/components/TrialModalProvider'
+import Image from "next/image";
+import {
+  ArrowRight,
+  MessageCircle,
+  Star,
+  BadgeCheck,
+  MapPin,
+} from "lucide-react";
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/Button";
+import { Badge } from "@/components/ui/Badge";
+import { IMAGES, WHATSAPP_URL } from "@/lib/data";
+import { useTrialModal } from "@/components/TrialModalProvider";
 
 export default function Hero() {
-  const { openModal } = useTrialModal()
+  const { openModal } = useTrialModal();
 
   return (
     <section className="relative min-h-[100svh] flex items-center overflow-hidden pt-20">
@@ -45,7 +51,9 @@ export default function Hero() {
           </h1>
 
           <p className="text-sm sm:text-base md:text-lg text-white/85 max-w-xl mb-5 md:mb-6 leading-relaxed">
-            Freshly collected, tested, and delivered in sanitised glass bottles within 3–4 hours of harvest — fresh, pure and unadulterated, every single day.
+            Freshly collected, tested, and delivered in sanitised glass bottles
+            within 3 Hrs of harvest — fresh, pure and unadulterated, every
+            single day.
           </p>
 
           {/* Trust bar */}
@@ -56,15 +64,21 @@ export default function Hero() {
                   <Star key={i} className="w-3 h-3 fill-current" />
                 ))}
               </div>
-              <span className="text-white text-xs font-semibold">Happy Families</span>
+              <span className="text-white text-xs font-semibold">
+                Happy Families
+              </span>
             </div>
             <div className="flex items-center gap-1 bg-white/15 backdrop-blur-sm rounded-full px-3 py-1.5">
               <BadgeCheck className="w-3 h-3 text-secondary-fixed" />
-              <span className="text-white text-xs font-semibold">FSSAI Certified</span>
+              <span className="text-white text-xs font-semibold">
+                FSSAI Certified
+              </span>
             </div>
             <div className="flex items-center gap-1 bg-white/15 backdrop-blur-sm rounded-full px-3 py-1.5">
               <MapPin className="w-3 h-3 text-secondary-fixed" />
-              <span className="text-white text-xs font-semibold">Hyderabad</span>
+              <span className="text-white text-xs font-semibold">
+                Hyderabad
+              </span>
             </div>
           </div>
 
@@ -82,7 +96,7 @@ export default function Hero() {
               variant="ghost"
               size="lg"
               className="w-full sm:w-auto justify-center"
-              onClick={() => window.open(WHATSAPP_URL, '_blank')}
+              onClick={() => window.open(WHATSAPP_URL, "_blank")}
             >
               <MessageCircle className="w-4 h-4 md:w-5 md:h-5" />
               WhatsApp Order
@@ -99,7 +113,7 @@ export default function Hero() {
         >
           <motion.div
             animate={{ y: [0, -20, 0] }}
-            transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
             className="relative w-full max-w-[300px] sm:max-w-[380px] md:max-w-[480px]"
           >
             <Image
@@ -123,7 +137,9 @@ export default function Hero() {
                 <div className="p-1.5 bg-primary/10 rounded-full">
                   <BadgeCheck className="w-3.5 h-3.5 text-primary" />
                 </div>
-                <span className="font-semibold text-primary text-xs md:text-sm">100% Raw &amp; Pure</span>
+                <span className="font-semibold text-primary text-xs md:text-sm">
+                  100% Raw &amp; Pure
+                </span>
               </div>
               <p className="text-on-surface-variant text-[11px] leading-relaxed">
                 No adulteration, no chemicals. Just pure farm essence.
@@ -135,5 +151,5 @@ export default function Hero() {
 
       <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-background/30 to-transparent pointer-events-none" />
     </section>
-  )
+  );
 }
