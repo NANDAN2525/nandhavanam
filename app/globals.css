@@ -88,12 +88,25 @@
 /* ── Global Base ── */
 html {
   scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
 }
 
 body {
   background-color: var(--color-background);
   color: var(--color-on-background);
   font-family: var(--font-body);
+  overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
 
 ::selection {
