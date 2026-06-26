@@ -37,7 +37,7 @@ const plans = [
   },
   {
     name: 'Family Pack',
-    price: process.env.NEXT_PUBLIC_PRICE_FAMILY_PACK || '₹270',
+    price: process.env.NEXT_PUBLIC_PRICE_FAMILY_PACK || '₹300',
     period: 'per 3 litres / day',
     description: 'For larger families or those who love extra chai.',
     perks: [
