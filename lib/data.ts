@@ -26,7 +26,7 @@ export const PRODUCTS: Product[] = [
     name: "Pure Buffalo Milk",
     description:
       "Collected at Brahma Muhurtham and delivered directly to your doorstep. Pure, thick and unadulterated — the way milk is supposed to be.",
-    price: process.env.NEXT_PUBLIC_PRICE_BUFFALO_MILK || "₹100",
+    price: process.env.NEXT_PUBLIC_PRICE_BUFFALO_MILK || "₹110",
     unit: "Litre",
     image: "/images/milk-bottle.jpg",
     badge: "Best Seller",
@@ -39,6 +39,7 @@ export const PRODUCTS: Product[] = [
     price: process.env.NEXT_PUBLIC_PRICE_CLAY_POT_CURD || "₹60",
     unit: "500g",
     image: "/images/curd.jpg",
+    comingSoon: true,
   },
   {
     id: "malai-paneer",
@@ -48,6 +49,7 @@ export const PRODUCTS: Product[] = [
     price: process.env.NEXT_PUBLIC_PRICE_MALAI_PANEER || "₹120",
     unit: "200g",
     image: "/images/paneer.jpg",
+    comingSoon: true,
   },
   {
     id: "desi-ghee",
@@ -133,6 +135,11 @@ export const COMPARISON_ROWS: ComparisonRow[] = [
     feature: "Farm to Door",
     nandhavanam: "Within 3 Hrs",
     market: "12 – 24 Hours",
+  },
+  {
+    feature: "Milking",
+    nandhavanam: "After Farm Clean",
+    market: "Before Farm Clean",
   },
 ];
 

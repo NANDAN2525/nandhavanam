@@ -1,26 +1,30 @@
-'use client'
+"use client";
 
-import Image from 'next/image'
-import { ShoppingCart, Star, Award } from 'lucide-react'
-import { motion } from 'framer-motion'
-import { SectionLabel } from '@/components/ui/SectionLabel'
-import { PRODUCTS, WHATSAPP_URL } from '@/lib/data'
+import Image from "next/image";
+import { ShoppingCart, Star, Award } from "lucide-react";
+import { motion } from "framer-motion";
+import { SectionLabel } from "@/components/ui/SectionLabel";
+import { PRODUCTS, WHATSAPP_URL } from "@/lib/data";
 
 const containerVariants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.1 } },
-}
+};
 
 const cardVariants = {
   hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' } },
-}
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.55, ease: "easeOut" },
+  },
+};
 
 const BADGE_ICONS: Record<string, typeof Star> = {
-  'Best Seller': Star,
+  "Best Seller": Star,
   Artisanal: Award,
-  'Desi Gold': Award,
-}
+  "Desi Gold": Award,
+};
 
 export default function Products() {
   return (
@@ -34,7 +38,9 @@ export default function Products() {
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
         >
-          <SectionLabel className="justify-center flex">Straight From Our Farm</SectionLabel>
+          <SectionLabel className="justify-center flex">
+            Straight From Our Farm
+          </SectionLabel>
           <h2 className="font-display font-bold text-4xl md:text-5xl text-primary mt-2">
             Pure & Natural, Every Single Day.
           </h2>
@@ -46,10 +52,10 @@ export default function Products() {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-50px' }}
+          viewport={{ once: true, margin: "-50px" }}
         >
           {PRODUCTS.map((product) => {
-            const BadgeIcon = product.badge ? BADGE_ICONS[product.badge] : null
+            const BadgeIcon = product.badge ? BADGE_ICONS[product.badge] : null;
             return (
               <motion.article
                 key={product.id}
@@ -62,15 +68,19 @@ export default function Products() {
                     src={product.image}
                     alt={product.name}
                     fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-700"
+                    className={`object-cover transition-transform duration-700 ${product.comingSoon ? "opacity-50" : "group-hover:scale-110"}`}
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   />
-                  {product.badge && BadgeIcon && (
+                  {product.comingSoon ? (
+                    <div className="absolute top-4 right-4 bg-tertiary-fixed text-on-tertiary-fixed px-3 py-1 rounded-full text-xs font-semibold">
+                      Coming Soon
+                    </div>
+                  ) : product.badge && BadgeIcon ? (
                     <div className="absolute top-4 right-4 bg-tertiary-fixed text-on-tertiary-fixed px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-1">
                       <BadgeIcon className="w-3 h-3 fill-current" />
                       {product.badge}
                     </div>
-                  )}
+                  ) : null}
                 </div>
 
                 {/* Details */}
@@ -89,8 +99,12 @@ export default function Products() {
                       </span>
                     </span>
                     <button
-                      onClick={() => window.open(WHATSAPP_URL, '_blank')}
-                      className="p-2.5 bg-secondary/10 text-secondary rounded-full hover:bg-secondary hover:text-white transition-colors duration-200"
+                      onClick={() =>
+                        !product.comingSoon &&
+                        window.open(WHATSAPP_URL, "_blank")
+                      }
+                      disabled={product.comingSoon}
+                      className={`p-2.5 rounded-full transition-colors duration-200 ${product.comingSoon ? "bg-gray-300 text-gray-500 cursor-not-allowed" : "bg-secondary/10 text-secondary hover:bg-secondary hover:text-white"}`}
                       aria-label={`Order ${product.name}`}
                     >
                       <ShoppingCart className="w-4 h-4" />
@@ -98,10 +112,10 @@ export default function Products() {
                   </div>
                 </div>
               </motion.article>
-            )
+            );
           })}
         </motion.div>
       </div>
     </section>
-  )
+  );
 }
